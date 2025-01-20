@@ -95,7 +95,7 @@ def curses_app(stdscr):
         stdscr.erase()
         height, width = stdscr.getmaxyx()
 
-        max_display = height - 8
+        max_display = height - 10
 
         serial_width = max(10, width // 12)
         date_width = max(20, width // 6)
@@ -104,8 +104,8 @@ def curses_app(stdscr):
         port_width = max(10, width // 12)
 
         stdscr.addstr(1, 0, " " * (width // 2 - 7) + "Packet Sniffer" + " " * (width // 2 - 7),curses.A_BOLD | curses.color_pair(3))
-        stdscr.addstr(height - 2, 0, "   Press 'q' to Quit | 's' to Start | 'e' to Stop | 'g' to go to bottom row", curses.color_pair(2))
-        stdscr.addstr(height - 2, width - 18, f"Status : {'Started' if sniffing else 'Stopped'}", curses.color_pair(2))
+        stdscr.addstr(height - 2, 0, "   Press 'q' to Quit | 's' to Start | 'e' to Stop | 'g' to go to bottom row | 'ENTER' to View Details", curses.color_pair(2))
+        stdscr.addstr(height - 3, 0, f"   Status : {'Started' if sniffing else 'Stopped'}", curses.color_pair(2))
 
         stdscr.attron(curses.color_pair(1))
         stdscr.border(0, 0, 0, 0, 0, 0, 0, 0)
